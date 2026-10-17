@@ -1,0 +1,18 @@
+# STUB - recommended next step: English <-> Zomi translation from parallel Bible verses.
+# Not wired into train_lm.py yet. See README "Roadmap".
+task: translation
+status: stub
+parallel_data:
+  source_lang: eng              # e.g. a licensed English Bible (WEB/KJV are public domain)
+  target_lang: ctd              # Zomi / Tedim Chin
+  alignment_key: [book_num, chapter, verse]   # align verse-by-verse
+  split_by: [book, chapter]     # reuse the splits from build_dataset to avoid leakage
+candidate_models:
+  - facebook/nllb-200-distilled-600M
+  - google/mt5-small
+hyperparameters:
+  max_length: 128
+  epochs: 5
+  batch_size: 16
+  learning_rate: 1.0e-4
+metrics: [chrF++, BLEU]
