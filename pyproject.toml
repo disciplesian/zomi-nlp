@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zomi-nlp"
+version = "0.1.0"
+description = "Automated training pipeline for Zomi (Tedim Chin) datasets and models"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "python-docx>=1.1",
+    "pyyaml>=6.0",
+    "pandas>=2.0",
+    "pyarrow>=14.0",
+    "sentencepiece>=0.2.0",
+]
+
+[project.optional-dependencies]
+train = [
+    "torch>=2.1",
+    "transformers>=4.40",
+    "datasets>=2.18",
+    "accelerate>=0.30",
+    "huggingface_hub>=0.23",
+]
+dev = ["pytest>=8", "ruff>=0.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]

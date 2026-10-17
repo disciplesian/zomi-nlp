@@ -1,0 +1,19 @@
+# Continued pre-training (masked LM) of a multilingual encoder on Zomi text
+task: mlm
+model_name: xlm-roberta-base
+tokenizer: pretrained      # use the pretrained model's tokenizer
+output_dir: models/xlmr-zomi
+max_length: 128
+mlm_probability: 0.15
+full:
+  epochs: 5
+  batch_size: 16
+  learning_rate: 5.0e-5
+  warmup_ratio: 0.06
+  weight_decay: 0.01
+smoke:                     # CPU-friendly CI check
+  epochs: 1
+  batch_size: 4
+  max_train_samples: 64
+  max_eval_samples: 32
+  max_length: 32

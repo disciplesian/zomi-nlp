@@ -1,0 +1,6 @@
+# SentencePiece tokenizer trained on the TRAIN split only
+model_type: unigram        # unigram | bpe
+vocab_size: 8000
+character_coverage: 1.0    # keep every character (diacritics, apostrophes)
+train_file: data/processed/train.txt
+output_dir: models/tokenizer

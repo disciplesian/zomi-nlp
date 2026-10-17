@@ -218,3 +218,20 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# zomi-nlp pipeline artifacts
+data/interim/
+data/processed/
+models/
+outputs/
+checkpoints/
+runs/
+wandb/
+*.ckpt
+*.pt
+*.safetensors
+*.bin
+*.model
+*.vocab
+.venv/
+venv/
