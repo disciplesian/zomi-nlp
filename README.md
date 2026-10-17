@@ -1,6 +1,6 @@
 # zomi-nlp
 
-Automated, reproducible pipeline that turns the Zomi (Tedim Chin, ISO 639-3 `ctd`) Bible Word
+Automated, reproducible pipeline that turns the Zomi (ISO 639-3 `ctd`) Bible Word
 files into clean datasets and trains Zomi language models with GitHub Actions and Hugging Face.
 
 ## Data provenance

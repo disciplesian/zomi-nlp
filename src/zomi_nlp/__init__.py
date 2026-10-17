@@ -1,4 +1,4 @@
-"""Zomi (Tedim Chin) NLP pipeline."""
+"""Zomi NLP pipeline."""
 
 from pathlib import Path
 
