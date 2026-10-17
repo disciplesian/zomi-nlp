@@ -4,7 +4,7 @@ task: translation
 status: stub
 parallel_data:
   source_lang: eng              # e.g. a licensed English Bible (WEB/KJV are public domain)
-  target_lang: ctd              # Zomi / Tedim Chin
+  target_lang: ctd              # Zomi
   alignment_key: [book_num, chapter, verse]   # align verse-by-verse
   split_by: [book, chapter]     # reuse the splits from build_dataset to avoid leakage
 candidate_models:
