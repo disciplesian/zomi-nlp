@@ -33,12 +33,11 @@ language:
 license: other
 tags:
 - zomi
-- tedim-chin
 ---
 
 # {repo_id}
 
-Language model for Zomi (Tedim Chin, ISO 639-3 `ctd`) trained with
+Language model for Zomi (ISO 639-3 `ctd`) trained with
 [disciplesian/zomi-nlp](https://github.com/disciplesian/zomi-nlp) on Bible text only.
 {metric_lines}
 

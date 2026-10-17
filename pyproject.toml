@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "zomi-nlp"
 version = "0.1.0"
-description = "Automated training pipeline for Zomi (Tedim Chin) datasets and models"
+description = "Automated training pipeline for Zomi datasets and models"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

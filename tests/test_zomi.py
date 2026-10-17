@@ -3,7 +3,7 @@ import unicodedata
 
 import pytest
 
-from zomi_nlp.build_dataset import make_splits, split_units
+from zomi_nlp.build_dataset import make_splits, split_units, write_dataset_card
 from zomi_nlp.parse import (
     BOOKS,
     CODE_TO_NUM,
@@ -12,6 +12,7 @@ from zomi_nlp.parse import (
     parse_filename,
     parse_paragraphs,
 )
+from zomi_nlp.push_to_hub import model_card
 
 
 def run(text, style=None):
@@ -115,3 +116,23 @@ def test_splits_no_leakage_and_deterministic():
     assert all(len(rows) > 0 for rows in a.values())
     assert split_units(recs, seed=1) != split_units(recs, seed=2)
     assert len(a["train"]) > 0.8 * len(recs)
+
+
+def test_dataset_card_uses_zomi_label_and_retains_language_code(tmp_path):
+    card_path = tmp_path / "DATASET_CARD.md"
+    write_dataset_card(card_path, {"verses": 1, "tokens": 2, "chars": 3})
+
+    card = card_path.read_text(encoding="utf-8")
+    assert "pretty_name: Zomi Bible" in card
+    assert "# Zomi Bible dataset" in card
+    assert "ISO 639-3 `ctd`" in card
+    assert "Tedim Chin" not in card
+    assert "Chin Tedim" not in card
+
+
+def test_model_card_uses_zomi_label_and_tag():
+    card = model_card("example/zomi-lm", None)
+
+    assert "Language model for Zomi (ISO 639-3 `ctd`)" in card
+    assert "- zomi" in card
+    assert "tedim-chin" not in card

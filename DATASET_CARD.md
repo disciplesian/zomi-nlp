@@ -2,16 +2,16 @@
 language:
 - ctd
 license: other
-pretty_name: Zomi (Tedim Chin) Bible
+pretty_name: Zomi Bible
 task_categories:
 - text-generation
 - fill-mask
 - translation
 ---
 
-# Zomi (Tedim Chin) Bible dataset
+# Zomi Bible dataset
 
-Verse-level Bible text in Zomi / Tedim Chin (ISO 639-3 `ctd`), extracted from the
+Verse-level Bible text in Zomi (ISO 639-3 `ctd`), extracted from the
 `TC*STv-OL` Word files in the `disciplesian/zomi-nlp` repository.
 
 - Verses: 27349
